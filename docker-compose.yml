@@ -2,11 +2,13 @@ version: '3.8'
 
 services:
 
-    dmit_mail_server:
+    dmit_email_server:
         image: analogic/poste.io
-        container_name: dmit_mail_server
+        container_name: dmit_email_server
         restart: always
         network_mode: "host"
+        ports:
+            - "8080:8080"
         expose:
             - "25"
             - "8080"
