@@ -25,9 +25,3 @@ services:
             - DISABLE_CLAMAV=TRUE
         volumes:
             - /mnt/mail:/data
-        networks:
-            - dmit_network
-
-networks:
-    dmit_network:
-        external: true
