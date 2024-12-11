@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+
+    dmit_mail_server:
+        image: analogic/poste.io
+        container_name: dmit_mail_server
+        restart: always
+        network_mode: "host"
+        expose:
+            - "25"
+            - "8080"
+            - "4443"
+            - "110"
+            - "143"
+            - "465"
+            - "587"
+            - "993"
+            - "995"
+        environment:
+            - TZ=America/New_York
+            - h=mail.dmit.ar # Direccion del servidor de mail hosting
+            - HTTP_PORT=8080
+            - HTTPS_PORT=4443
+            - DISABLE_CLAMAV=TRUE
+        volumes:
+            - /mnt/mail:/data
+        networks:
+            - dmit_network
+
+networks:
+    dmit_network:
+        external: true
