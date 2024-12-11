@@ -7,8 +7,6 @@ services:
         container_name: dmit_email_server
         restart: always
         network_mode: "host"
-        ports:
-            - "8080:8080"
         expose:
             - "25"
             - "8080"
